@@ -13,7 +13,6 @@ CHARACTER_VELOCITY = 3
 START_POSITION = [0, 0]
 # Some colors
 GREY = (105, 105, 105)
-LIME = (50, 205, 50)
 
 # Loading the character image and the cream puff image
 CHARACTER_IMAGE = pygame.image.load(os.path.join('img', 'rectangle.png'))
