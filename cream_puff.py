@@ -1,5 +1,3 @@
-from random import randint
-
 import pygame
 
 
@@ -21,5 +19,3 @@ class CreamPuff:
     def draw_cream_puff(self):
         if self.visible:
             self.WINDOW.blit(self.CREAM_PUFF_IMAGE, (self.cream_puff_rect.x, self.cream_puff_rect.y))
-
-

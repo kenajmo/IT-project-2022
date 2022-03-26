@@ -10,7 +10,7 @@ WINDOW = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 # Some const. values for later use
 FPS = 60
 PLAYER_WIDTH, PLAYER_HEIGHT = 50, 100
-PLAYER_VELOCITY = 3
+PLAYER_VELOCITY = 4
 PLAYER_START_POSITION = [0, 0]
 
 ENEMY_WIDTH, ENEMY_HEIGHT = 50, 100
@@ -19,11 +19,13 @@ ENEMY_START_POSITION = [500, 0]
 
 # Some colors
 GREY = (105, 105, 105)
+LIME = (191, 255, 0)
 
 # Loading the player image and the cream puff image
 PLAYER_IMAGE = pygame.image.load(os.path.join('img', 'rectangle.png'))
 CREAM_PUFF_IMAGE = pygame.image.load(os.path.join('img', 'cream_puff.png'))
 ENEMY_IMAGE = pygame.image.load(os.path.join('img', 'enemy.png'))
+
 
 cream_puff = cream_puff.CreamPuff(450, 250, WINDOW, CREAM_PUFF_IMAGE, player)
 
@@ -35,6 +37,8 @@ enemy = enemy.Enemy(
     ENEMY_START_POSITION[0], ENEMY_START_POSITION[1], WINDOW, ENEMY_IMAGE, ENEMY_WIDTH,
     ENEMY_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, ENEMY_VELOCITY, cream_puff)
 
+pygame.init()
+
 
 def draw():
     WINDOW.fill(GREY)
@@ -43,6 +47,11 @@ def draw():
     player.check_collisions()
     cream_puff.draw_cream_puff()
     enemy.draw_enemy()
+    my_font = pygame.font.SysFont("monospace", 16)
+    disclaimer_text_player = my_font.render(str(player.player_points), True, LIME)
+    disclaimer_text_enemy = my_font.render(str(enemy.enemy_points), True, LIME)
+    WINDOW.blit(disclaimer_text_player, (5, 5))
+    WINDOW.blit(disclaimer_text_enemy, (890, 5))
     pygame.display.update()
 
 

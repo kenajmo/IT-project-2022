@@ -61,8 +61,8 @@ class Enemy:
     def check_collisions(self):
         if self.cream_puff.cream_puff_rect.colliderect(self.enemy_rect):
             self.cream_puff.visible = False
-            self.cream_puff.cream_puff_rect.x = randint(0, 900)
-            self.cream_puff.cream_puff_rect.y = randint(0, 500)
+            self.cream_puff.cream_puff_rect.x = randint(0, 850)
+            self.cream_puff.cream_puff_rect.y = randint(0, 450)
             self.cream_puff.visible = True
             self.enemy_points += 1
 
