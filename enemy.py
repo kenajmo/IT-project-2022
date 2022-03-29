@@ -54,10 +54,16 @@ class Enemy:
 
     def move_enemy(self):
         course = self.set_course()
-        self.enemy_rect.x += course[0] * self.ENEMY_VELOCITY
-        self.enemy_rect.y += course[1] * self.ENEMY_VELOCITY
+        if course[1] < 0:
+            self.enemy_rect.y += course[1] - self.ENEMY_VELOCITY
+        elif course[1] > 0:
+            self.enemy_rect.y += course[1] + self.ENEMY_VELOCITY
+        if course[0] < 0:
+            self.enemy_rect.x += course[0] - self.ENEMY_VELOCITY
+        elif course[0] > 0:
+            self.enemy_rect.x += course[0] + self.ENEMY_VELOCITY
 
-    # Moves the cream puff when the player touches it
+    # Moves the cream puff when the enemy touches it
     def check_collisions(self):
         if self.cream_puff.cream_puff_rect.colliderect(self.enemy_rect):
             self.cream_puff.visible = False

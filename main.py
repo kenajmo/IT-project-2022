@@ -10,11 +10,11 @@ WINDOW = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 # Some const. values for later use
 FPS = 60
 PLAYER_WIDTH, PLAYER_HEIGHT = 50, 100
-PLAYER_VELOCITY = 4
+PLAYER_VELOCITY = 5
 PLAYER_START_POSITION = [0, 0]
 
 ENEMY_WIDTH, ENEMY_HEIGHT = 50, 100
-ENEMY_VELOCITY = 3
+ENEMY_VELOCITY = 2
 ENEMY_START_POSITION = [500, 0]
 
 # Some colors
@@ -51,7 +51,7 @@ def draw():
     disclaimer_text_player = my_font.render(str(player.player_points), True, LIME)
     disclaimer_text_enemy = my_font.render(str(enemy.enemy_points), True, LIME)
     WINDOW.blit(disclaimer_text_player, (5, 5))
-    WINDOW.blit(disclaimer_text_enemy, (890, 5))
+    WINDOW.blit(disclaimer_text_enemy, (880, 5))
     pygame.display.update()
 
 
